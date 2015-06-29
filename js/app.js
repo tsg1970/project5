@@ -36,4 +36,4 @@ ko.applyBindings(viewModel);
 
 });
 
-/* Google API key AIzaSyDvmjCwHnPim1zh9TcVtOGh6EoH7lomzpA* /
+/* Google API key AIzaSyDvmjCwHnPim1zh9TcVtOGh6EoH7lomzpA*  /
