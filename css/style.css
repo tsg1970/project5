@@ -1,13 +1,20 @@
 * {box-sizing:border-box;}
 body {background-color: #ccc;}
 
+html, body, #map-canvas {
+	height: 100%;
+	margin: 20px;
+	padding: 0px;
+}
+
 ul li {
   display: block;
   text-decoration: none;
   background-color: white;
   line-height: 30px;
   border-bottom: solid 1px #3d9970;
-  padding: 0 10px;
+  padding: 0 20px;
+  margin-left: 0;
 }
 
 #list {
@@ -16,5 +23,9 @@ ul li {
 
 selected, ul li:hover {
   color: white;
-  background-color: #00ff;
+  background-color: #00bfff;
+}
+input {
+	line-height: 30px;
+	padding: 0 10px;
 }

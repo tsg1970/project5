@@ -13,7 +13,31 @@ var locations = [
         street: "Elm St",
         },
         {
-        name: "Vickies Place",
+        name: "Olive Garden",
+        street: "Richmond Rd",
+        },
+        {
+        name: "Brunch Cafe",
+        street: "Route 31",
+        },
+        {
+        name: "Happy Jacks",
+        street: "Elm St",
+        },
+        {
+        name: "Vickie's Place",
+        street: "Elm St",
+        },
+        {
+        name: "Tacos El Norte",
+        street: "Elm St",
+        },
+        {
+        name: "Applebee's",
+        street: "Elm St",
+        },
+        {
+        name: "Chili's",
         street: "Elm St",
         },
         {
@@ -26,6 +50,15 @@ var viewModel = {
     query: ko.observable(''),
 };
 
+function initialize() {
+  map = new google.maps.Map(document.getElementById('map-canvas'), {
+    zoom: 15,
+    center: {lat: 42.33574, lng: -88.2918985}
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
 viewModel.locations = ko.computed(function() {
     var search = this.query().toLowerCase();
         return ko.utils.arrayFilter(locations, function(location) {
@@ -36,4 +69,4 @@ ko.applyBindings(viewModel);
 
 });
 
-/* Google API key AIzaSyDvmjCwHnPim1zh9TcVtOGh6EoH7lomzpA*  /
+/* Google API key AIzaSyDvmjCwHnPim1zh9TcVtOGh6EoH7lomzpA*/
