@@ -1,20 +1,28 @@
 * {box-sizing:border-box;}
 body {background-color: #ccc;}
 
-html, body, #map-canvas {
+html, body {
 	height: 100%;
-	margin: 20px;
+	margin: 10px;
 	padding: 0px;
+}
+
+#map-canvas {
+  height: 100%;
 }
 
 ul li {
   display: block;
   text-decoration: none;
   background-color: white;
-  line-height: 48px;
+  line-height: 30px;
   border-bottom: solid 1px #3d9970;
-  padding: 0 20px;
+  padding: 0 10px;
   margin-left: 0;
+}
+
+ul {
+  padding-left: 0;
 }
 
 #list {
@@ -27,5 +35,4 @@ selected, ul li:hover {
 }
 input {
 	line-height: 30px;
-	padding: 0 10px;
 }

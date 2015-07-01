@@ -53,7 +53,7 @@ var viewModel = {
 function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     zoom: 15,
-    center: {lat: 42.33574, lng: -88.2918985}
+    center: {lat: 42.3455736, lng: -88.2689808}
   });
 }
 
