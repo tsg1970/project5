@@ -51,10 +51,13 @@ var viewModel = {
 };
 
 function initialize() {
-  map = new google.maps.Map(document.getElementById('map-canvas'), {
-    zoom: 15,
-    center: {lat: 42.3455736, lng: -88.2689808}
-  });
+    var myLatlng = new google.maps.LatLng(42.3455736, -88.2689808);
+    var mapOptions = {
+        center: myLatlng,
+        zoom: 15
+    }
+
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions)
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

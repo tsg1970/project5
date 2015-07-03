@@ -7,18 +7,20 @@
         <link href="css/style.css" rel="stylesheet"></link>
         <script src="js/lib/knockout-3.3.0.js"></script>
         <script src="js/lib/jQuery.js"></script>
-        <script src="http://maps.googleapis.com/maps/api/js?v=3"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     </head>
     <body>
-        <div id="list">
-            <span>Search <input placeholder="Search" data-bind="textInput: query" /></span>
-            <ul data-bind="foreach: locations">
-                <li>
-                    <span data-bind="text: name"></span>
-                </li>
-            </ul>
+        <div class="container">
+            <div id="list">
+                <span><input placeholder="Search" data-bind="textInput: query" /></span>
+                <ul data-bind="foreach: locations">
+                    <li>
+                        <span data-bind="text: name"></span>
+                    </li>
+                </ul>
+            </div>
+            <div id="map-canvas"></div>
         </div>
-        <div id="map-canvas"></div>
         <script src="js/app.js"></script>
     </body>
 </html>
