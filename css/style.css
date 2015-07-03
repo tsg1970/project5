@@ -22,9 +22,15 @@ html, body {
 
 
 @media screen and (min-width: 450px) {
-  .light_blue, .green {
-
-  }
+  .container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #map-canvas {
+      height: 100%;
+      width: 100%;
+    }
 }
 
 @media screen and (min-width: 550px) {
