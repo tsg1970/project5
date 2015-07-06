@@ -10,12 +10,14 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     </head>
     <body>
-        <div id = "header">
-            <h1>My Favorite Restaurants</h1>
-        </div>
         <div class="container">
-            <div id="list">
-                <span><input placeholder="Search" data-bind="textInput: query" /></span>
+            <div id = "header">
+                <a id="nav-toggle" href="#"><span></span></a>
+                <div id="hamburger"></div>
+            </div>
+
+           <div id="list">
+                <input placeholder="Search" data-bind="textInput: query" />
                 <ul data-bind="foreach: locations">
                     <li>
                         <span data-bind="text: name"></span>
