@@ -31,8 +31,16 @@ html, body {
   top: 50px;
 }
 
+input {
+  line-height: 30px;
+  width: 250px;
+  border: 0;
+  border-bottom: solid 1px #3d9970;
+  margin-left: 0;
+}
+
 #map-canvas {
-    position: absolute;
+  position: absolute;
   left: 0;
   top: 0;
   z-index: -1;
@@ -40,21 +48,16 @@ html, body {
   width: 100%;
 }
 
-#nav-toggle {
-  cursor: pointer;
-  padding: 0px 20px 20px;
-  border: 1px;
-  border-color: #fff;
-  position: absolute;
-  top: 10px;
-}
+#nav-toggle { position: fixed; left: 10px; top: 10px; }
+
+#nav-toggle { cursor: pointer; padding: 10px 35px 16px 0px; }
 
 #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
   cursor: pointer;
   border-radius: 1px;
   height: 5px;
   width: 35px;
-  background: black;
+  background: #000;
   position: absolute;
   display: block;
   content: '';
@@ -125,10 +128,3 @@ ul li:hover {
   opacity: .8;
 }
 
-input {
-  line-height: 30px;
-  width: 250px;
-  border: 0;
-  border-bottom: solid 1px #3d9970;
-  margin-left: 0;
-}
