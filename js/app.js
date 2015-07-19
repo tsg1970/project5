@@ -70,5 +70,8 @@ viewModel.locations = ko.computed(function() {
         });
     }, viewModel);
 ko.applyBindings(viewModel);
-
 });
+
+document.querySelector("#nav-toggle").addEventListener("click", function() {
+    document.getElementById("list").classList.toggle("noList");
+})
