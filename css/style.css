@@ -73,14 +73,12 @@ ul li:hover {
 }
 
 .showList {
-  width: 250px;
   height: 100%;
   float: left;
   position: absolute;
   left: 5px;
   top: 50px;
 }
-
 
 #container {
   position: absolute;
