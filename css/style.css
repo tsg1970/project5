@@ -83,6 +83,7 @@ ul li:hover {
 
 
 #container {
+  position: absolute;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -96,7 +97,4 @@ ul li:hover {
 
 .noList {
   display: none;
-  -webkit-transform: translate(-0px, 0);
-  transform: translate(-0px, 0);
-  transition: transform 0.3s ease;
 }
