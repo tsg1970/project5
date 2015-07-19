@@ -72,16 +72,6 @@ ul li:hover {
   opacity: .8;
 }
 
-.showList {
-  width: 250px;
-  height: 100%;
-  float: left;
-  position: absolute;
-  /*left: 5px;
-  top: 50px;*/
-}
-
-
 #container {
   position: absolute;
   left: 10px;
@@ -95,6 +85,15 @@ ul li:hover {
   margin-left: auto;
   margin-right: auto;
  }
+
+ .showList {
+  width: 250px;
+  height: 100%;
+  float: left;
+  position: absolute;
+  /*left: 5px;
+  top: 50px;*/
+}
 
 .noList {
   display: none;
