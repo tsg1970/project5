@@ -84,6 +84,8 @@ ul li:hover {
 
 #container {
   position: absolute;
+  left: 10px;
+  top: 50px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
