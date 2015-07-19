@@ -63,8 +63,6 @@ function initialize() {
 google.maps.event.addDomListener(window, 'resize', initialize);
 google.maps.event.addDomListener(window, 'load', initialize);
 
-
-
 viewModel.locations = ko.computed(function() {
     var search = this.query().toLowerCase();
         return ko.utils.arrayFilter(locations, function(location) {
@@ -72,7 +70,8 @@ viewModel.locations = ko.computed(function() {
         });
     }, viewModel);
 ko.applyBindings(viewModel);
-
 });
 
-/* Google API key AIzaSyDvmjCwHnPim1zh9TcVtOGh6EoH7lomzpA*/
+document.querySelector("#nav-toggle").addEventListener("click", function() {
+    document.getElementById("list").classList.toggle("noList");
+})

@@ -10,27 +10,6 @@ html, body {
   height: 35px;
 }
 
-.container {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
- }
-
-#list {
-  width: 250px;
-  height: 100%;
-  /*float: left;*/
-  position: absolute;
-  left: 10px;
-  top: 50px;
-}
-
 input {
   line-height: 30px;
   width: 250px;
@@ -48,7 +27,7 @@ input {
   width: 100%;
 }
 
-#nav-toggle { position: fixed; left: 10px; top: 10px; }
+#nav-toggle { position: fixed; left: 20px; top: 10px; }
 
 #nav-toggle { cursor: pointer; padding: 10px 35px 16px 0px; }
 
@@ -69,41 +48,6 @@ input {
 
 #nav-toggle span:after {
   bottom: -10px; 
-}
-
-@media screen and (min-width: 450px) {
- /* .container {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    #map-canvas {
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      z-index: -1;
-    }*/
-}
-
-@media screen and (min-width: 550px) {
-  /*.container {
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    #map-canvas {
-      height: 100%;
-      width: 100%;
-    }*/
-}
-
-@media screen and (min-width: 800px) {
-    /*.container {
-      height: 100%;
-      width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-    }*/
 }
 
 ul li {
@@ -128,3 +72,31 @@ ul li:hover {
   opacity: .8;
 }
 
+.showList {
+  width: 250px;
+  height: 100%;
+  float: left;
+  position: absolute;
+  left: 10px;
+  top: 50px;
+}
+
+
+#container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+.noList {
+  display: none;
+  -webkit-transform: translate(-0px, 0);
+  transform: translate(-0px, 0);
+  transition: transform 0.3s ease;
+}
