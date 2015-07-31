@@ -7,7 +7,7 @@
         <link href="css/style.css" rel="stylesheet"></link>
         <script src="js/lib/knockout-3.3.0.js"></script>
         <script src="js/lib/jQuery.js"></script>
-        <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>-->
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     </head>
     <body>
         <div id="map-canvas"></div>
@@ -17,7 +17,7 @@
             </div>
 
             <div id="list" class="showList">
-                <input placeholder="Search" data-bind="textInput: query" />
+                <span><input placeholder="Search" data-bind="textInput: query" /></span>
                 <ul data-bind="foreach: filteredArray">
                     <li data-bind="text: title"></li>
                 </ul>

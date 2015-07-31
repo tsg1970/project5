@@ -53,8 +53,10 @@ function viewModel() {
     if (typeof google === 'object' && typeof google.maps === 'object') {
         google.maps.event.addDomListener(window, 'load', initialize);
     } else {
-        document.getElementById('error-message').innerHTML = "Google Maps could not be loaded";;
-    }
+        document.getElementById('error-message').innerHTML = "Google Maps could not be loaded";
+        var myElement = document.querySelector('#error-message');
+myElement.style.backgroundColor = "#eee";
+    };
     self.filteredArray = ko.computed(function() {
         var search = self.query().toLowerCase();
         return ko.utils.arrayFilter(Model.markers(), function(marker) {

@@ -1,7 +1,7 @@
 
 html, body {
   height: 100%;
-  margin: 10px;
+  margin: 0px;
   padding: 0px;
 }
 
@@ -81,7 +81,8 @@ ul li:hover {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
-  display: -webkit-flex;
+  display: -webkit-flex;;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   width: 250px;
@@ -98,7 +99,6 @@ ul li:hover {
   text-align: center;
   height: 100%;
   width:100%;
-  font-size: 120%;
-  z-index: 2;
-  color: #eee;
+  font-size: 100%;
+  margin: 0;
 }
