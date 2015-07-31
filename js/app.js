@@ -15,9 +15,9 @@ function viewModel() {
             center: myLatlng,
             zoom: 13
         };
-
         map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
         var infoWindow = new google.maps.InfoWindow();
+
         fsURL = "https://api.foursquare.com/v2/venues/explore?ll=42.3455736, -88.2689808&section=food&limit=15&client_id=LJOOHSBYBD4RW3ZOSTYKIE2W0QDGHEUFV5B2TTXCWDSBSKYI&client_secret=AFW5DRM0A3XHYRLNJGMM3C014RB5BCEEITM4NO3TEFVMXBTP&v=20150701"
         $.getJSON(fsURL, function(data) {
             locations = data.response.groups[0].items
@@ -49,11 +49,12 @@ function viewModel() {
                 });
             }//end for locations.length loop
         })//end json
-   
     }//end initialize
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-
+    if (typeof google === 'object' && typeof google.maps === 'object') {
+        google.maps.event.addDomListener(window, 'load', initialize);
+    } else {
+        document.getElementById('error-message').innerHTML = "Google Maps could not be loaded";;
+    }
     self.filteredArray = ko.computed(function() {
         var search = self.query().toLowerCase();
         return ko.utils.arrayFilter(Model.markers(), function(marker) {
