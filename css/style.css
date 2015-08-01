@@ -60,12 +60,6 @@ ul {
   margin: 0;
 }
 
-ul li:hover {
-  color: #fff;
-  background-color: #00bfff;
-  opacity: .8;
-}
-
 .showList {
   height: 100%;
   float: left;
@@ -101,4 +95,6 @@ ul li:hover {
   width:100%;
   font-size: 100%;
   margin: 0;
+  display:none;
 }
+

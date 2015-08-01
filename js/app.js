@@ -55,7 +55,8 @@ function viewModel() {
     } else {
         document.getElementById('error-message').innerHTML = "Google Maps could not be loaded";
         var myElement = document.querySelector('#error-message');
-myElement.style.backgroundColor = "#eee";
+        myElement.style.backgroundColor = "#eee";
+        $('#error-message').css('display','block');
     };
     self.filteredArray = ko.computed(function() {
         var search = self.query().toLowerCase();
