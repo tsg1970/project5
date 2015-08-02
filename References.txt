@@ -1,0 +1,20 @@
+Project 5 Resources
+
+1)	Websites/Forums
+a)	http://stackoverflow.com/questions/12014128/using-knockout-to-filter-viewmodel-data-using-multiple-fields-columns-and-contro
+b)	http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
+c)	http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
+d)	https://en.wikipedia.org/wiki/Immediately-invoked_function_expression
+e)	http://www.w3.org/Style/Examples/011/firstcss#external
+f)	https://developers.google.com/maps/documentation/javascript/examples/marker-simple
+g)	http://stackoverflow.com/questions/5059596/jquery-css-remove-add-displaynone
+h)	https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples#Example_5:_Event_Propagation
+i)	http://elijahmanor.com/css-animated-hamburger-icon/
+j)	http://www.w3schools.com/jsref/prop_element_classlist.asp
+k)	http://cssdeck.com/labs/3fo47n21
+l)	http://jsfiddle.net/xgpaA/4/
+m)	https://developer.foursquare.com/docs/responses/venue
+n)	http://www.kirupa.com/html5/setting_css_styles_using_javascript.htm
+
+
+

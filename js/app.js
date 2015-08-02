@@ -20,6 +20,7 @@ function viewModel() {
 
         // Using Foursquare API to retrieve list of restaurants
         fsURL = "https://api.foursquare.com/v2/venues/explore?ll=42.3455736, -88.2689808&section=food&limit=15&client_id=LJOOHSBYBD4RW3ZOSTYKIE2W0QDGHEUFV5B2TTXCWDSBSKYI&client_secret=AFW5DRM0A3XHYRLNJGMM3C014RB5BCEEITM4NO3TEFVMXBTP&v=20150701"
+        
         $.getJSON(fsURL, function(data) {
             locations = data.response.groups[0].items
 
@@ -28,16 +29,17 @@ function viewModel() {
                 var locPosition = new google.maps.LatLng(locations[x].venue.location.lat, locations[x].venue.location.lng);
                 //if  statement to create a blank entry if there is no URL for the restaurant listing
                 if( locations[x].venue.url){
-                    var locURL = "<a href=" + locations[x].venue.url + ">" + locations[x].venue.url + "</a>"
+                    var locURL = '<a href=' + locations[x].venue.url + '>' + locations[x].venue.url + '</a>'
                 } 
                 else{
                     var locURL = ""
-                };
+                } //end if else statement
+                
                 // ContentString is for the infoWindow
                 var contentString = "<span class='title'><b>" + locations[x].venue.name + "</b></span><br>" + 
-                        locations[x].venue.location.address + "<br>"+
-                        locations[x].venue.location.city + ", " +locations[x].venue.location.state + " " + locations[x].venue.location.postalCode + "<br>" +
-                        locURL+ "</a>";
+                    locations[x].venue.location.address + "<br>"+
+                    locations[x].venue.location.city + ", " +locations[x].venue.location.state + " " + locations[x].venue.location.postalCode + "<br>" +
+                    locURL+ "</a><p>Data by Foursquare</p>";
                 var marker = new google.maps.Marker({
                     position: locPosition,
                     title: locations[x].venue.name,
@@ -48,8 +50,8 @@ function viewModel() {
                 Model.markers.push(marker);
                 var contentString = locations[x].venue.name;
                 google.maps.event.addListener(marker, 'click', function(){
-                        infoWindow.setContent(this.content);
-                        infoWindow.open(map, this);
+                    infoWindow.setContent(this.content);
+                    infoWindow.open(map, this);
                 });
             }//end for locations.length loop
         })//end json
@@ -90,4 +92,4 @@ ko.applyBindings(viewModel);
 //show or unshow list when hamburger is clicked
 document.querySelector("#nav-toggle").addEventListener("click", function() {
     document.getElementById("list").classList.toggle("noList");
-})
+});
