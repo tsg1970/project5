@@ -10,6 +10,7 @@ input {
   border: 0;
   border-bottom: solid 1px #3d9970;
   margin-left: 0;
+  padding: 5px 10px;
 }
 
 #map-canvas {
