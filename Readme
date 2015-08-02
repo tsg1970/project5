@@ -1,0 +1,14 @@
+Mchenry Restaurants
+I created a page that shows the location of 15 restaurants in the Mchenry area and 
+places a marker on a Google map where each restaurant is located.
+
+I used Foursquare to retrieve the list of restaurants. I retrieved the restaurants name, address, and url. Each marker
+has an infowindow that shows when the marker is clicked. 
+
+The search input box will filter through the list with each letter typed. As each letter is typed the markers on the map
+will coordinate with the search list.
+
+API's used
+Google Maps
+Foursquare
+
