@@ -24,7 +24,7 @@ function viewModel() {
         $.getJSON(fsURL, function(data) {
             locations = data.response.groups[0].items
 
-            // For loop to loop through Foursquare results
+            // Loop through Foursquare results and add markers to the map. Create an infowindow for each marker.
             for (var x = 0; x < locations.length; x++) {
                 var locPosition = new google.maps.LatLng(locations[x].venue.location.lat, locations[x].venue.location.lng);
                 //if  statement to create a blank entry if there is no URL for the restaurant listing

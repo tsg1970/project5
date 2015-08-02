@@ -1,4 +1,3 @@
-
 html, body {
   height: 100%;
   margin: 0px;
@@ -11,6 +10,7 @@ input {
   border: 0;
   border-bottom: solid 1px #3d9970;
   margin-left: 0;
+  padding: 5px 10px;
 }
 
 #map-canvas {
@@ -86,6 +86,21 @@ ul {
 
 .noList {
   display: none;
+<<<<<<< HEAD
+}
+
+#error-message {
+  position: absolute;
+  text-align: center;
+  height: 100%;
+  width:100%;
+  font-size: 100%;
+  margin: 0;
+  display:none;
+}
+||||||| merged common ancestors
+}
+=======
 }
 
 #error-message {
@@ -98,3 +113,4 @@ ul {
   display:none;
 }
 
+>>>>>>> gh-pages
