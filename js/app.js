@@ -18,18 +18,22 @@ function viewModel() {
         map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
         var infoWindow = new google.maps.InfoWindow();
 
+        // Using Foursquare API to retrieve list of restaurants
         fsURL = "https://api.foursquare.com/v2/venues/explore?ll=42.3455736, -88.2689808&section=food&limit=15&client_id=LJOOHSBYBD4RW3ZOSTYKIE2W0QDGHEUFV5B2TTXCWDSBSKYI&client_secret=AFW5DRM0A3XHYRLNJGMM3C014RB5BCEEITM4NO3TEFVMXBTP&v=20150701"
         $.getJSON(fsURL, function(data) {
             locations = data.response.groups[0].items
 
+            // For loop to loop through Foursquare results
             for (var x = 0; x < locations.length; x++) {
                 var locPosition = new google.maps.LatLng(locations[x].venue.location.lat, locations[x].venue.location.lng);
+                //if  statement to create a blank entry if there is no URL for the restaurant listing
                 if( locations[x].venue.url){
                     var locURL = "<a href=" + locations[x].venue.url + ">" + locations[x].venue.url + "</a>"
                 } 
                 else{
                     var locURL = ""
                 };
+                // ContentString is for the infoWindow
                 var contentString = "<span class='title'><b>" + locations[x].venue.name + "</b></span><br>" + 
                         locations[x].venue.location.address + "<br>"+
                         locations[x].venue.location.city + ", " +locations[x].venue.location.state + " " + locations[x].venue.location.postalCode + "<br>" +
@@ -50,14 +54,17 @@ function viewModel() {
             }//end for locations.length loop
         })//end json
     }//end initialize
+
+    //If statement to show blank page if Google Map is unavailable
     if (typeof google === 'object' && typeof google.maps === 'object') {
         google.maps.event.addDomListener(window, 'load', initialize);
     } else {
         document.getElementById('error-message').innerHTML = "Google Maps could not be loaded";
         var myElement = document.querySelector('#error-message');
         myElement.style.backgroundColor = "#eee";
-        $('#error-message').css('display','block');
+        $('#error-message').css('display','block'); //block error-message
     };
+    //Filter list based on search entry
     self.filteredArray = ko.computed(function() {
         var search = self.query().toLowerCase();
         return ko.utils.arrayFilter(Model.markers(), function(marker) {
@@ -65,6 +72,7 @@ function viewModel() {
             });
     }, self);
 
+    // add or remove markers by comaring to list
     self.missingLocations = ko.computed(function() {
         var differences = ko.utils.compareArrays(Model.markers(), self.filteredArray());
         ko.utils.arrayForEach(differences, function(marker) {
@@ -79,6 +87,7 @@ function viewModel() {
 
 ko.applyBindings(viewModel);
 
+//show or unshow list when hamburger is clicked
 document.querySelector("#nav-toggle").addEventListener("click", function() {
     document.getElementById("list").classList.toggle("noList");
 })
