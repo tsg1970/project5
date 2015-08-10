@@ -5,7 +5,7 @@ html, body {
 }
 
 input {
-  line-height: 30px;
+  line-height: 100%;
   width: 250px;
   border: 0;
   border-bottom: solid 1px #3d9970;
@@ -48,7 +48,7 @@ ul li {
   display: block;
   text-decoration: none;
   background-color: #fff;
-  line-height: 30px;
+  line-height: 120%;
   border-bottom: solid 1px #3d9970;
   padding: 0 10px;
   margin-left: 0;
@@ -86,7 +86,6 @@ ul {
 
 .noList {
   display: none;
-<<<<<<< HEAD
 }
 
 #error-message {
@@ -98,19 +97,3 @@ ul {
   margin: 0;
   display:none;
 }
-||||||| merged common ancestors
-}
-=======
-}
-
-#error-message {
-  position: absolute;
-  text-align: center;
-  height: 100%;
-  width:100%;
-  font-size: 100%;
-  margin: 0;
-  display:none;
-}
-
->>>>>>> gh-pages

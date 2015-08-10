@@ -1,3 +1,24 @@
+var autoMessage
+
+window.addEventListener("offline", function(e) {
+  //alert("offline");
+  autoMessage = setInterval(function(){ alertMessage() }, 1000);
+}, false);
+
+window.addEventListener("online", function(e) {
+    clearInterval(autoMessage)
+  window.location.reload()
+}, false);
+
+function alertMessage() {
+    document.getElementById('error-message').innerHTML = "Loss of internet";
+    var myElement = document.querySelector('#error-message');
+    myElement.style.backgroundColor = "#eee";
+    $('#error-message').css('display','block'); //block error-message
+
+}
+
+
 var Model = {
     markers: ko.observableArray()
 };
@@ -22,17 +43,18 @@ function viewModel() {
         fsURL = "https://api.foursquare.com/v2/venues/explore?ll=42.3455736, -88.2689808&section=food&limit=15&client_id=LJOOHSBYBD4RW3ZOSTYKIE2W0QDGHEUFV5B2TTXCWDSBSKYI&client_secret=AFW5DRM0A3XHYRLNJGMM3C014RB5BCEEITM4NO3TEFVMXBTP&v=20150701"
         
         $.getJSON(fsURL, function(data) {
-            locations = data.response.groups[0].items
+            locations = data.response.groups[0].items;
 
             // Loop through Foursquare results and add markers to the map. Create an infowindow for each marker.
-            for (var x = 0; x < locations.length; x++) {
+            var len = locations.length;
+            for (var x = 0; x < len; x++) {
                 var locPosition = new google.maps.LatLng(locations[x].venue.location.lat, locations[x].venue.location.lng);
                 //if  statement to create a blank entry if there is no URL for the restaurant listing
                 if( locations[x].venue.url){
-                    var locURL = '<a href=' + locations[x].venue.url + '>' + locations[x].venue.url + '</a>'
+                    var locURL = '<a href=' + locations[x].venue.url + '>' + locations[x].venue.url + '</a>';
                 } 
                 else{
-                    var locURL = ""
+                    var locURL = "";
                 } //end if else statement
                 
                 // ContentString is for the infoWindow
@@ -50,11 +72,15 @@ function viewModel() {
                 Model.markers.push(marker);
                 var contentString = locations[x].venue.name;
                 google.maps.event.addListener(marker, 'click', function(){
+                    map.panTo(this.getPosition());
                     infoWindow.setContent(this.content);
                     infoWindow.open(map, this);
+
                 });
             }//end for locations.length loop
-        })//end json
+        }).error(function(e){
+            console.log('error');
+        });//end json
     }//end initialize
 
     //If statement to show blank page if Google Map is unavailable
@@ -93,3 +119,5 @@ ko.applyBindings(viewModel);
 document.querySelector("#nav-toggle").addEventListener("click", function() {
     document.getElementById("list").classList.toggle("noList");
 });
+
+
