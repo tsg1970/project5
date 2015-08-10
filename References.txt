@@ -15,6 +15,4 @@ k)	http://cssdeck.com/labs/3fo47n21
 l)	http://jsfiddle.net/xgpaA/4/
 m)	https://developer.foursquare.com/docs/responses/venue
 n)	http://www.kirupa.com/html5/setting_css_styles_using_javascript.htm
-
-
-
+o)  http://stackoverflow.com/questions/12314861/google-maps-auto-center-map-on-marker-click
