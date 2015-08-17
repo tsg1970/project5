@@ -1,30 +1,9 @@
-var autoMessage
-
-window.addEventListener("offline", function(e) {
-  //alert("offline");
-  autoMessage = setInterval(function(){ alertMessage() }, 1000);
-}, false);
-
-window.addEventListener("online", function(e) {
-    clearInterval(autoMessage)
-  window.location.reload()
-}, false);
-
-function alertMessage() {
-    document.getElementById('error-message').innerHTML = "Loss of internet";
-    var myElement = document.querySelector('#error-message');
-    myElement.style.backgroundColor = "#eee";
-    $('#error-message').css('display','block'); //block error-message
-
-}
-
-
 var Model = {
     markers: ko.observableArray()
 };
 
 function viewModel() {
-
+    "used script";
     var self = this;
     var map, mapOptions;
     var locations;
@@ -40,8 +19,8 @@ function viewModel() {
         var infoWindow = new google.maps.InfoWindow();
 
         // Using Foursquare API to retrieve list of restaurants
-        fsURL = "https://api.foursquare.com/v2/venues/explore?ll=42.3455736, -88.2689808&section=food&limit=15&client_id=LJOOHSBYBD4RW3ZOSTYKIE2W0QDGHEUFV5B2TTXCWDSBSKYI&client_secret=AFW5DRM0A3XHYRLNJGMM3C014RB5BCEEITM4NO3TEFVMXBTP&v=20150701"
-        
+        fsURL = "https://api.foursquare.com/v2/venues/explore?ll=42.3455736, -88.2689808&section=food&limit=15&client_id=LJOOHSBYBD4RW3ZOSTYKIE2W0QDGHEUFV5B2TTXCWDSBSKYI&client_secret=AFW5DRM0A3XHYRLNJGMM3C014RB5BCEEITM4NO3TEFVMXBTP&v=20150701";
+
         $.getJSON(fsURL, function(data) {
             locations = data.response.groups[0].items;
 
@@ -51,14 +30,14 @@ function viewModel() {
                 var locPosition = new google.maps.LatLng(locations[x].venue.location.lat, locations[x].venue.location.lng);
                 //if  statement to create a blank entry if there is no URL for the restaurant listing
                 if( locations[x].venue.url){
-                    var locURL = '<a href=' + locations[x].venue.url + '>' + locations[x].venue.url + '</a>';
-                } 
+                    var locURL = '<a target="_blank" href=' + locations[x].venue.url + '>' + locations[x].venue.url + '</a>';
+                }
                 else{
                     var locURL = "";
-                } //end if else statement
-                
+                }//end if else statement
+
                 // ContentString is for the infoWindow
-                var contentString = "<span class='title'><b>" + locations[x].venue.name + "</b></span><br>" + 
+                var contentString = "<span class='title'><b>" + locations[x].venue.name + "</b></span><br>" +
                     locations[x].venue.location.address + "<br>"+
                     locations[x].venue.location.city + ", " +locations[x].venue.location.state + " " + locations[x].venue.location.postalCode + "<br>" +
                     locURL+ "</a><p>Data by Foursquare</p>";
@@ -75,11 +54,10 @@ function viewModel() {
                     map.panTo(this.getPosition());
                     infoWindow.setContent(this.content);
                     infoWindow.open(map, this);
-
                 });
             }//end for locations.length loop
         }).error(function(e){
-            console.log('error');
+            console.log('json error');
         });//end json
     }//end initialize
 
@@ -92,6 +70,7 @@ function viewModel() {
         myElement.style.backgroundColor = "#eee";
         $('#error-message').css('display','block'); //block error-message
     };
+
     //Filter list based on search entry
     self.filteredArray = ko.computed(function() {
         var search = self.query().toLowerCase();
@@ -100,7 +79,7 @@ function viewModel() {
             });
     }, self);
 
-    // add or remove markers by comaring to list
+    // add or remove markers by comparing to list
     self.missingLocations = ko.computed(function() {
         var differences = ko.utils.compareArrays(Model.markers(), self.filteredArray());
         ko.utils.arrayForEach(differences, function(marker) {
@@ -111,7 +90,7 @@ function viewModel() {
             }
         });
     }, self);
-} //end viewmModel function
+} //end viewModel function
 
 ko.applyBindings(viewModel);
 
@@ -120,4 +99,22 @@ document.querySelector("#nav-toggle").addEventListener("click", function() {
     document.getElementById("list").classList.toggle("noList");
 });
 
+var autoMessage;
 
+window.addEventListener("offline", function(e) {
+  autoMessage = setInterval(function(){ alertMessage() }, 1000);
+}, false);
+
+window.addEventListener("online", function(e) {
+    clearInterval(autoMessage);
+    window.location.reload();
+}, false);
+
+function alertMessage() {
+    console.log('error');
+    document.getElementById('error-message').innerHTML = 'THERE SEEMS TO BE A PROBLEM. I CANNOT CONNECT TO THE WEBSITE.';
+    var myElement = document.querySelector('#error-message');
+    myElement.style.backgroundColor = "#eee";
+    $('#error-message').css('display','block');//block error-message
+    $('#error-message').css('opacity','.5');
+}
