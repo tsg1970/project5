@@ -1,14 +1,26 @@
-Mchenry Restaurants
-I created a page that shows the location of 15 restaurants in the Mchenry area and 
+Mchenry Restaurants version 1.0 8/01/2015
+
+website: http://tsg1970.github.io/project5/
+email: tsgoff@att.net
+
+The webpage shows the location of 15 restaurants in the Mchenry area and 
 places a marker on a Google map where each restaurant is located.
 
-I used Foursquare to retrieve the list of restaurants. I retrieved the restaurants name, address, and url. Each marker
-has an infowindow that shows when the marker is clicked. 
+The site uses the Foursquare api to retrieve a list of restaurants. For each 
+restaurant the page retrieves the restaurant's name, address, and url. Each 
+marker has an infowindow that appears when the marker is clicked. 
 
-The search input box will filter through the list with each letter typed. As each letter is typed the markers on the map
-will coordinate with the search list.
+The search input box will filter through the list with each letter typed. 
+As each letter is typed the markers on the map will coordinate with the search 
+list.
 
-API's used
+To start the application, open the file index.html with any browser. A list of 15 
+restaurants will appear along with a Google map showing the location of each 
+restaurant. In the search box enter any string to narrow the list of
+restaurants. Click on any marker to open a window the shows the details of 
+the restaurant. If there is a Foursquare URL there will be a link to the restaurant 
+in the window. Click on the link to take you to the restaurants webpage.
+
+API's used:
 Google Maps
 Foursquare
-
