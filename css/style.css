@@ -1,8 +1,8 @@
 html, 
 body {
   height: 100%;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 input {
@@ -14,7 +14,7 @@ input {
   padding: 5px 10px;
 }
 
-#map-canvas {
+.map-canvas {
   position: absolute;
   left: 0;
   top: 0;
@@ -22,13 +22,13 @@ input {
   width: 100%;
 }
 
-#nav-toggle { position: fixed; left: 20px; top: 10px; }
+.nav { position: fixed; left: 20px; top: 10px; }
 
-#nav-toggle { cursor: pointer; padding: 10px 35px 16px 0px; }
+.nav { cursor: pointer; padding: 10px 35px 16px 0; }
 
-#nav-toggle span, 
-#nav-toggle span:before, 
-#nav-toggle span:after {
+.nav span, 
+.nav span:before, 
+.nav span:after {
   cursor: pointer;
   border-radius: 1px;
   height: 5px;
@@ -39,11 +39,11 @@ input {
   content: '';
 }
 
-#nav-toggle span:before {
+.nav span:before {
   top: -10px;
 }
 
-#nav-toggle span:after {
+.nav span:after {
   bottom: -10px; 
 }
 
@@ -71,7 +71,7 @@ ul {
   top: 50px;
 }
 
-#container {
+.container {
   position: absolute;
   left: 10px;
   top: 50px;
@@ -91,7 +91,7 @@ ul {
   display: none;
 }
 
-#error-message {
+.error-message {
   position: absolute;
   text-align: center;
   height: 100%;

@@ -3,9 +3,9 @@ var Model = {
 };
 
 function viewModel() {
-    "used script";
+    "used strict";
     var self = this;
-    var map, mapOptions;
+    var map, mapOptions, locURL;
     var locations;
     self.query = ko.observable('');
 
@@ -15,7 +15,7 @@ function viewModel() {
             center: myLatlng,
             zoom: 13
         };
-        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        map = new google.maps.Map(document.querySelector('.map-canvas'), mapOptions);
         var infoWindow = new google.maps.InfoWindow();
 
         // Using Foursquare API to retrieve list of restaurants
@@ -30,10 +30,10 @@ function viewModel() {
                 var locPosition = new google.maps.LatLng(locations[x].venue.location.lat, locations[x].venue.location.lng);
                 //if  statement to create a blank entry if there is no URL for the restaurant listing
                 if( locations[x].venue.url){
-                    var locURL = '<a target="_blank" href=' + locations[x].venue.url + '>' + locations[x].venue.url + '</a>';
+                    locURL = '<a target="_blank" href=' + locations[x].venue.url + '>' + locations[x].venue.url + '</a>';
                 }
                 else{
-                    var locURL = "";
+                    locURL = "";
                 }//end if else statement
 
                 // ContentString is for the infoWindow
@@ -46,15 +46,15 @@ function viewModel() {
                     title: locations[x].venue.name,
                     map: map,
                     content: contentString
-                });
+                });//end google.maps.Marker
                 marker.setMap(map);
                 Model.markers.push(marker);
-                var contentString = locations[x].venue.name;
+                contentString = locations[x].venue.name;
                 google.maps.event.addListener(marker, 'click', function(){
                     map.panTo(this.getPosition());
                     infoWindow.setContent(this.content);
                     infoWindow.open(map, this);
-                });
+                });//end google.maps.event.addListener
             }//end for locations.length loop
         }).error(function(e){
             console.log('json error');
@@ -65,11 +65,11 @@ function viewModel() {
     if (typeof google === 'object' && typeof google.maps === 'object') {
         google.maps.event.addDomListener(window, 'load', initialize);
     } else {
-        document.getElementById('error-message').innerHTML = "Google Maps could not be loaded";
-        var myElement = document.querySelector('#error-message');
+        document.querySelector('.error-message').innerHTML = "Google Maps could not be loaded";
+        var myElement = document.querySelector('.error-message');
         myElement.style.backgroundColor = "#eee";
-        $('#error-message').css('display','block'); //block error-message
-    };
+        $('.error-message').css('display','block'); //block error-message
+    }
 
     //Filter list based on search entry
     self.filteredArray = ko.computed(function() {
@@ -95,14 +95,14 @@ function viewModel() {
 ko.applyBindings(viewModel);
 
 //show or unshow list when hamburger is clicked
-document.querySelector("#nav-toggle").addEventListener("click", function() {
+document.querySelector(".nav").addEventListener("click", function() {
     document.getElementById("list").classList.toggle("noList");
 });
 
 var autoMessage;
 
 window.addEventListener("offline", function(e) {
-  autoMessage = setInterval(function(){ alertMessage() }, 1000);
+  autoMessage = setInterval(function(){ alertMessage(); }, 1000);
 }, false);
 
 window.addEventListener("online", function(e) {
@@ -112,9 +112,9 @@ window.addEventListener("online", function(e) {
 
 function alertMessage() {
     console.log('error');
-    document.getElementById('error-message').innerHTML = 'THERE SEEMS TO BE A PROBLEM. I CANNOT CONNECT TO THE WEBSITE.';
-    var myElement = document.querySelector('#error-message');
+    document.querySelector('.error-message').innerHTML = 'THERE SEEMS TO BE A PROBLEM. I CANNOT CONNECT TO THE WEBSITE.';
+    var myElement = document.querySelector('.error-message');
     myElement.style.backgroundColor = "#eee";
-    $('#error-message').css('display','block');//block error-message
-    $('#error-message').css('opacity','.5');
+    $('.error-message').css('display','block');//block error-message
+    $('.error-message').css('opacity','.5');
 }
