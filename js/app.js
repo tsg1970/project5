@@ -5,9 +5,10 @@ var Model = {
 function viewModel() {
     "used strict";
     var self = this;
-    var map, mapOptions, locURL;
+    var map, mapOptions, locURL, infoWindow;
     var locations;
     self.query = ko.observable('');
+    var currentMarker = null;
 
     function initialize() {
         var myLatlng = new google.maps.LatLng(42.3455736, -88.2689808);
@@ -16,7 +17,7 @@ function viewModel() {
             zoom: 13
         };
         map = new google.maps.Map(document.querySelector('.map-canvas'), mapOptions);
-        var infoWindow = new google.maps.InfoWindow();
+        infoWindow = new google.maps.InfoWindow();
 
         // Using Foursquare API to retrieve list of restaurants
         fsURL = "https://api.foursquare.com/v2/venues/explore?ll=42.3455736, -88.2689808&section=food&limit=15&client_id=LJOOHSBYBD4RW3ZOSTYKIE2W0QDGHEUFV5B2TTXCWDSBSKYI&client_secret=AFW5DRM0A3XHYRLNJGMM3C014RB5BCEEITM4NO3TEFVMXBTP&v=20150701";
@@ -51,14 +52,12 @@ function viewModel() {
                 Model.markers.push(marker);
                 contentString = locations[x].venue.name;
                 google.maps.event.addListener(marker, 'click', function(){
-                    map.panTo(this.getPosition());
-                    infoWindow.setContent(this.content);
-                    infoWindow.open(map, this);
-                });//end google.maps.event.addListener
-            }//end for locations.length loop
+                    markerBounce(this);
+                });//end google event loop
+            }//end for locations.length loop*/
         }).error(function(e){
             console.log('json error');
-        });//end json
+        });//end json error
     }//end initialize
 
     //If statement to show blank page if Google Map is unavailable
@@ -90,6 +89,24 @@ function viewModel() {
             }
         });
     }, self);
+
+    // When list is clicked it retrieves marker from the list
+    self.getMarker = function(marker) {
+        markerBounce(marker);
+    };//end getMarker function
+
+    //bounces the marker when it is either clicked or selected on the list
+    function markerBounce(marker) {
+        if (currentMarker) currentMarker.setAnimation(null);
+        // set this marker to the currentMarker
+        currentMarker = marker;
+        // add a bounce to this marker
+        map.panTo(marker.getPosition());
+        infoWindow.setContent(marker.content);
+        infoWindow.open(map, marker);
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+    }//end markerBounce
+
 } //end viewModel function
 
 ko.applyBindings(viewModel);
