@@ -11,7 +11,7 @@
     </head>
     <body>
         <div class="map-canvas"></div>
-        <div id="container">
+        <div class="container">
             <!--hamburger to remove search and list-->
             <div class = "header">
                 <a class="nav" href="#"><span></span></a>
@@ -20,7 +20,7 @@
             <div id="list" class="showList">
                 <span><input placeholder="Search" data-bind="textInput: query" /></span>
                 <ul data-bind="foreach: filteredArray">
-                    <li data-bind="text: title"></li>
+                    <li data-bind="text: title, click: getMarker"></li>
                 </ul>
             </div>
         </div>
