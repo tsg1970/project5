@@ -14,6 +14,9 @@ The search input box will filter through the list with each letter typed.
 As each letter is typed the markers on the map will coordinate with the search 
 list.
 
+When a marker is clicked or selected from the list view the marker will bounce and
+the infowindow will appear.
+
 To start the application, open the file index.html with any browser. A list of 15 
 restaurants will appear along with a Google map showing the location of each 
 restaurant. In the search box enter any string to narrow the list of
